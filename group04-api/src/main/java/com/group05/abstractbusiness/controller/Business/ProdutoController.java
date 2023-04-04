@@ -21,7 +21,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.group05.abstractbusiness.model.Business.Mercadoria;
 import com.group05.abstractbusiness.model.Business.Produto;
 import com.group05.abstractbusiness.model.Business.ProdutoDigital;
-import com.group05.abstractbusiness.model.Business.ProdutoFisico;
+import com.group05.abstractbusiness.model.Business.ProductPhysical;
 import com.group05.abstractbusiness.model.Business.ProdutoIntelectual;
 import com.group05.abstractbusiness.model.Business.Servico;
 import com.group05.abstractbusiness.model.Business.ServicoDigital;
@@ -73,7 +73,7 @@ public class ProdutoController {
     public ResponseEntity<Mercadoria> criarFisico(@PathVariable String tipo, @RequestBody FisicoFactory fisicoFactory){
         ModelMapper mapper = new ModelMapper();
         if(tipo.equals("produto")){
-            return new ResponseEntity<Mercadoria>(produtoFisicoService.adicionar(mapper.map(fisicoFactory.criarProduto(), ProdutoFisico.class)), HttpStatus.CREATED);
+            return new ResponseEntity<Mercadoria>(produtoFisicoService.adicionar(mapper.map(fisicoFactory.criarProduto(), ProductPhysical.class)), HttpStatus.CREATED);
         } else if(tipo.equals("servico")){
             return new ResponseEntity<Mercadoria>(serviceFisicoService.adicionar(mapper.map(fisicoFactory.criarServico(), ServicoFisico.class)), HttpStatus.CREATED);
         }  else {

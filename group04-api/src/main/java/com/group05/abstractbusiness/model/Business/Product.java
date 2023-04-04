@@ -10,8 +10,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Table;
@@ -27,7 +25,7 @@ import lombok.NoArgsConstructor;
 @MappedSuperclass                                               // Super Classe no BD, pode ser herdada em outras classes
 @Entity                                                         // Entidade
 @Table(name = "product")                                        // Nome da tabela
-public abstract class Product {
+public class Product {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -75,6 +73,6 @@ public abstract class Product {
     @CollectionTable(name = "tags", joinColumns = @JoinColumn(name = "product_id"))         // Define o nome da tabela de coleção como "tags" no banco de dados
     @Column(name = "tag")                                                                   // Define o nome da coluna como "tag" no banco de dados
     @NotEmpty                                                                               // Anotação para validar que a coleção não pode ser vazia ou nula
-    private List<String> tags;                                                             
-
+    private List<String> tags;
+    
 }

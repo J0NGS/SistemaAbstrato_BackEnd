@@ -16,6 +16,9 @@ public class ProductDecorator extends Product {
         this.decoratedProduct = decoratedProduct;
     }
 
+    public ProductDecorator() {
+    }
+
     public Product getDecoratedProduct() {
         return decoratedProduct;
     }

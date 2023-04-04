@@ -1,11 +1,11 @@
-package com.group05.abstractbusiness.repository;
+// package com.group05.abstractbusiness.repository;
 
-import java.util.UUID;
+// import java.util.UUID;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+// import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.group05.abstractbusiness.model.Business.ServicoFisico;
+// import com.group05.abstractbusiness.model.Business.ServicoFisico;
 
-public interface ServicoFisicoRepository extends JpaRepository<ServicoFisico, UUID> {
+// public interface ServicoFisicoRepository extends JpaRepository<ServicoFisico, UUID> {
     
-}
+// }

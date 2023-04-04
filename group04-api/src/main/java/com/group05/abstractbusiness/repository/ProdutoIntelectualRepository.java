@@ -4,8 +4,8 @@ import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.group05.abstractbusiness.model.Business.ProdutoIntelectual;
+import com.group05.abstractbusiness.model.Business.ProductIntelectual;
 
-public interface ProdutoIntelectualRepository extends JpaRepository<ProdutoIntelectual, UUID> {
+public interface ProdutoIntelectualRepository extends JpaRepository<ProductIntelectual, UUID> {
     
 }

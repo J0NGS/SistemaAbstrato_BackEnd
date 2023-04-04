@@ -18,25 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.group05.abstractbusiness.model.Business.Mercadoria;
-import com.group05.abstractbusiness.model.Business.Produto;
-import com.group05.abstractbusiness.model.Business.ProdutoDigital;
 import com.group05.abstractbusiness.model.Business.ProductPhysical;
-import com.group05.abstractbusiness.model.Business.ProdutoIntelectual;
-import com.group05.abstractbusiness.model.Business.Servico;
-import com.group05.abstractbusiness.model.Business.ServicoDigital;
-import com.group05.abstractbusiness.model.Business.ServicoFisico;
-import com.group05.abstractbusiness.model.Business.ServicoIntelectual;
-import com.group05.abstractbusiness.model.Business.factory.AbstractFactoryProdutoServico;
-import com.group05.abstractbusiness.model.Business.factory.DigitalFactory;
-import com.group05.abstractbusiness.model.Business.factory.FisicoFactory;
-import com.group05.abstractbusiness.model.Business.factory.IntelectualFactory;
 import com.group05.abstractbusiness.service.Business.ProdutoDigitalService;
 import com.group05.abstractbusiness.service.Business.ProdutoFisicoService;
 import com.group05.abstractbusiness.service.Business.ProdutoIntelectualService;
-import com.group05.abstractbusiness.service.Business.ServicoDigitalService;
-import com.group05.abstractbusiness.service.Business.ServicoFisicoService;
-import com.group05.abstractbusiness.service.Business.ServicoIntelectualService;
 
 
 /**
@@ -50,56 +35,29 @@ public class ProdutoController {
     @Autowired
     private ProdutoFisicoService produtoFisicoService;
 
-    @Autowired
-    private ProdutoDigitalService produtoDigitalService;
+    // @Autowired
+    // private ProdutoDigitalService produtoDigitalService;
 
-    @Autowired
-    private ProdutoIntelectualService produtoIntelectualService;
+    // @Autowired
+    // private ProdutoIntelectualService produtoIntelectualService;
 
-    @Autowired
-    private ServicoFisicoService serviceFisicoService;
+    // @Autowired
+    // private ServicoFisicoService serviceFisicoService;
 
-    @Autowired
-    private ServicoDigitalService servicoDigitalService;
+    // @Autowired
+    // private ServicoDigitalService servicoDigitalService;
 
-    @Autowired
-    private ServicoIntelectualService servicoIntelectualService;
-
-    private AbstractFactoryProdutoServico fabrica;
+    // @Autowired
+    // private ServicoIntelectualService servicoIntelectualService;
 
     //#region CRIAR PRODUTOS OU SERVIÇOS
 
-    @PostMapping("/fisico/{tipo}")
-    public ResponseEntity<Mercadoria> criarFisico(@PathVariable String tipo, @RequestBody FisicoFactory fisicoFactory){
-        ModelMapper mapper = new ModelMapper();
-        if(tipo.equals("produto")){
-            return new ResponseEntity<Mercadoria>(produtoFisicoService.adicionar(mapper.map(fisicoFactory.criarProduto(), ProductPhysical.class)), HttpStatus.CREATED);
-        } else if(tipo.equals("servico")){
-            return new ResponseEntity<Mercadoria>(serviceFisicoService.adicionar(mapper.map(fisicoFactory.criarServico(), ServicoFisico.class)), HttpStatus.CREATED);
-        }  else {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-        }
-    }
-
-    @PostMapping("/digital/{tipo}")
-    public ResponseEntity<Mercadoria> criarDigital(@PathVariable String tipo, @RequestBody DigitalFactory produto){
-        if(tipo.equals("produto")){
-            return new ResponseEntity<Mercadoria>(produtoDigitalService.adicionar((ProdutoDigital) produto.criarProduto()), HttpStatus.CREATED);
-        } else if(tipo.equals("servico")){
-            return new ResponseEntity<Mercadoria>(servicoDigitalService.adicionar((ServicoDigital) produto.criarServico()), HttpStatus.CREATED);
-        } else {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-        }
-    }
-
-    @PostMapping("/intelectual/{tipo}")
-    public ResponseEntity<Mercadoria> criarIntelectual(@PathVariable String tipo, @RequestBody IntelectualFactory produto){
-        if(tipo.equals("produto")){
-            return new ResponseEntity<Mercadoria>(produtoIntelectualService.adicionar((ProdutoIntelectual) produto.criarProduto()), HttpStatus.CREATED);
-        } else if(tipo.equals("servico")){
-            return new ResponseEntity<Mercadoria>(servicoIntelectualService.adicionar((ServicoIntelectual) produto.criarServico()), HttpStatus.CREATED);
-        }  else {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+    @PostMapping("/produto/fisico")
+    public ResponseEntity<ProductPhysical> criarProduto(@RequestBody ProductPhysical produtoFisico){
+        try {
+            return new ResponseEntity<>(produtoFisicoService.adicionar(produtoFisico),HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
         }
     }
 

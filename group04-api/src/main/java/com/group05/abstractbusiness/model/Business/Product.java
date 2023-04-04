@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 @Entity                                                         // Entidade
 @Table(name = "product")                                        // Nome da tabela
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)        // Cada classe filha tem sua propria tabela no BD
-public class Product {
+public abstract class Product {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

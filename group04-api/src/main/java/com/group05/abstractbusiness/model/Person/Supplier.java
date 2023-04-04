@@ -85,4 +85,14 @@ public class Supplier extends Person {
         return Objects.hash(id, address, email, phone);
     }
 
+    @Override
+    public String toString() {
+        return "{" + super.toString()+
+            " id='" + getId() + "'" +
+            ", address='" + getAddress() + "'" +
+            ", email='" + getEmail() + "'" +
+            ", phone='" + getPhone() + "'" +
+            "}";
+    }
+    
 }

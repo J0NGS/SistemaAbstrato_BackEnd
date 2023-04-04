@@ -47,4 +47,11 @@ public class CustomerPF extends Customer{
         return Objects.hashCode(cpf);
     }
 
+    @Override
+    public String toString() {
+        return "{" + super.toString() +
+            " cpf='" + getCpf() + "'" +
+            "}";
+    }
+
 }

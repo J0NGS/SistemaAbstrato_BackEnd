@@ -45,5 +45,10 @@ public class CustomerPJ extends Customer{
     public int hashCode() {
         return Objects.hashCode(cnpj);
     }
-
+    @Override
+    public String toString() {
+        return "{" + super.toString() +
+            " CNPJ='" + getCnpj() + "'" +
+            "}";
+    }
 }

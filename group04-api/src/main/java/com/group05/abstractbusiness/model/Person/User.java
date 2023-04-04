@@ -81,4 +81,14 @@ public class User extends Person{
         this.permission = permission;
     }
 
+    @Override
+    public String toString() {
+        return "{" + super.toString() +
+            " userId='" + getUserId() + "'" +
+            ", login='" + getLogin() + "'" +
+            ", password='" + getPassword() + "'" +
+            ", permission='" + getPermission() + "'" +
+            "}";
+    }
+
 }

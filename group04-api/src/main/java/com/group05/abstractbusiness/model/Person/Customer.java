@@ -82,4 +82,15 @@ public class Customer extends Person {
         return Objects.hash(id, address, email, number);
     }
 
+    @Override
+    public String toString() {
+        return 
+            super.toString() +
+            " id='" + getId() + "'" +
+            ", address='" + getAddress() + "'" +
+            ", email='" + getEmail() + "'" +
+            ", number='" + getNumber() + "'"
+            ;
+    }
+
 }

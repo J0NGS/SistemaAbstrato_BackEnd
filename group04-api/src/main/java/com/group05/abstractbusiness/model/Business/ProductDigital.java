@@ -13,11 +13,9 @@ import lombok.Data;
 @Entity
 @Table(name = "product_digital")
 public class ProductDigital extends ProductDecorator {
-
-
-
     public ProductDigital(Product product,String fileUrl, String fileType,
     Double fileSize, int downloadCount, LocalDateTime expiryDate) {
+    super.
     super(product);
     this.fileUrl = fileUrl;
     this.fileType = fileType;

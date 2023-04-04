@@ -4,6 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.group05.abstractbusiness.model.Transaction.Transaction;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.Data;
+
+@Entity
+@Data
+@Table(name = "finance")
 public class Finance {
     private List<Transaction> transactions; // atributo para armazenar uma lista de transações
 
